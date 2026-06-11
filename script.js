@@ -1,5 +1,4 @@
 // Danh sách các ứng dụng thực tế của bạn
-// Danh sách các ứng dụng thực tế của bạn
 const myApps = [
     {
         name: "Gemini OCR Studio",
@@ -19,30 +18,29 @@ const myApps = [
     {
         name: "TRỢ LÝ GVCN",
         url: "https://trolygvcna-i.vercel.app/",
-        icon: "fa-user-tie" // Đổi icon thành người đeo cà vạt cho hợp với GVCN
+        icon: "fa-user-tie" 
     },
     {
         name: "THƯ VIỆN SỐ SKL",
         url: "https://thuvientoanskl.vercel.app/",
-        icon: "fa-book" // Đổi icon thành quyển sách cho thư viện
+        icon: "fa-book" 
     },
     {
         name: "CHẤM ĐIỂM TỰ ĐỘNG OCR",
         url: "https://toan-skl-ocr.vercel.app/",
-        icon: "fa-check-double" // Đổi icon thành dấu tích chấm điểm
+        icon: "fa-check-double" 
     },
     {
         name: "TOÁN THCS",
         url: "https://toanthcs-ten.vercel.app/",
-        icon: "fa-check-double" // Đổi icon thành dấu tích chấm điểm
+        icon: "fa-check-double" 
     },
     {
         name: "XƯỞNG SẢN XUẤT VIDEO",
         url: "https://xuong-video-ai-skyline-thaytoanai.streamlit.app/",
         icon: "fa-video",
-        isExternal: true  // Thêm dòng này để đánh dấu đây là link cần mở ngoài
-       
-    },
+        isExternal: true  // Đánh dấu mở link ở Tab mới
+    }
 ];
 
 const listContainer = document.getElementById('app-list');
@@ -50,15 +48,6 @@ const fullscreenWrapper = document.getElementById('fullscreen-wrapper');
 const iframe = document.getElementById('app-frame');
 
 // Tự động tạo danh sách ứng dụng ở cột trái
-myApps.forEach(app => {
-    const item = document.createElement('div');
-    item.className = 'q-item';
-    
-    // Đổ dữ liệu Icon và Tên ứng dụng vào thẻ
-    item.innerHTML = `<i class="fa-solid ${app.icon}"></i> <span>${app.name}</span>`;
-    
-    // Logic khi người dùng click vào thẻ ứng dụng
- // Tự động tạo danh sách ứng dụng ở cột trái
 myApps.forEach(app => {
     const item = document.createElement('div');
     item.className = 'q-item';
