@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Math Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <i class="fa-solid fa-drafting-compass deco-icon compa"></i>
+    <i class="fa-solid fa-earth-americas deco-icon globe"></i>
+    <i class="fa-solid fa-calculator deco-icon calc"></i>
+    <i class="fa-solid fa-pencil deco-icon pencil-left"></i>
+    <i class="fa-solid fa-book-open deco-icon book-left"></i>
+    
+    <i class="fa-solid fa-cloud deco-icon cloud1"></i>
+    <i class="fa-solid fa-lightbulb deco-icon bulb"></i>
+    <i class="fa-solid fa-pen-ruler deco-icon pen-ruler"></i>
+    <i class="fa-solid fa-rocket deco-icon rocket"></i>
+    <i class="fa-solid fa-book deco-icon book-right"></i>
+    
+    <i class="fa-solid fa-star deco-icon star1"></i>
+    <i class="fa-solid fa-star deco-icon star2"></i>
+    <i class="fa-solid fa-heart deco-icon heart"></i>
+    <div class="app">
+        <div class="topbar">
+            <h1><i class="fa-solid fa-book-open"></i> THAY TOAN AI Math <span>Hub</span></h1>
+            <p>Không gian học tập tương tác</p>
+        </div>
+        
+        <div class="layout">
+            <div class="panel sidebar-panel">
+                <h2 class="panel-title"><i class="fa-solid fa-layer-group"></i> Trạm Ứng Dụng</h2>
+                <div class="q-list" id="app-list">
+                    </div>
+            </div>
+
+            <div class="panel grow welcome-panel" id="welcome-panel">
+                <div class="empty-state">
+                    <i class="fa-solid fa-shapes fa-4x float-animation" style="color: #6366f1;"></i>
+                    <h2>Sẵn sàng giải quyết vấn đề!</h2>
+                    <p>Hãy chọn một ứng dụng ở menu bên trái để bắt đầu. Ứng dụng sẽ tự động phóng to toàn màn hình để bạn dễ dàng tập trung.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="fullscreen-wrapper" class="fullscreen-wrapper hidden">
+        <button id="close-btn" class="close-btn" onclick="closeFullscreen()">
+            <i class="fa-solid fa-arrow-left"></i> Quay lại trang vở
+        </button>
+        <iframe id="app-frame" src="about:blank"></iframe>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
