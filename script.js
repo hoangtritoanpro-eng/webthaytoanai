@@ -30,6 +30,11 @@ const myApps = [
         name: "CHẤM ĐIỂM TỰ ĐỘNG OCR",
         url: "https://toan-skl-ocr.vercel.app/",
         icon: "fa-check-double" // Đổi icon thành dấu tích chấm điểm
+    },
+    {
+        name: "TOÁN THCS",
+        url: "https://toanthcs-ten.vercel.app/",
+        icon: "fa-check-double" // Đổi icon thành dấu tích chấm điểm
     }
 ];
 
