@@ -39,7 +39,7 @@ const myApps = [
         name: "XƯỞNG SẢN XUẤT VIDEO",
         url: "https://xuong-video-ai-skyline-thaytoanai.streamlit.app/",
         icon: "fa-video",
-        isExternal: true  // Đánh dấu mở link ở Tab mới
+        isExternal: true  // Đánh dấu mở link ở Tab mới bằng thẻ <a>
     }
 ];
 
@@ -49,25 +49,29 @@ const iframe = document.getElementById('app-frame');
 
 // Tự động tạo danh sách ứng dụng ở cột trái
 myApps.forEach(app => {
-    const item = document.createElement('div');
+    // Nếu là link ngoài (isExternal) thì tạo thẻ <a>, ngược lại tạo thẻ <div>
+    const item = document.createElement(app.isExternal ? 'a' : 'div');
     item.className = 'q-item';
     
     // Đổ dữ liệu Icon và Tên ứng dụng vào thẻ
     item.innerHTML = `<i class="fa-solid ${app.icon}"></i> <span>${app.name}</span>`;
     
-    // Logic khi người dùng click vào thẻ ứng dụng
-    item.onclick = () => {
-        // KIỂM TRA ĐIỀU KIỆN
-        if (app.isExternal) {
-            // Nếu có cờ isExternal: true -> Mở ứng dụng sang một Tab/Cửa sổ mới
-            window.open(app.url, '_blank', 'noopener,noreferrer');
-        } else {
-            // Nếu là các ứng dụng bình thường -> Mở link trong iframe
+    if (app.isExternal) {
+        // Thiết lập thuộc tính cho thẻ <a> để mở Tab mới an toàn tuyệt đối
+        item.href = app.url;
+        item.target = '_blank';
+        item.rel = 'noopener noreferrer';
+        
+        // CSS để giữ nguyên giao diện đẹp của thầy, không bị gạch chân hay đổi màu link
+        item.style.textDecoration = 'none'; 
+        item.style.color = 'inherit';       
+    } else {
+        // Logic cho các nút mở trong khung iframe trượt (các nút bình thường)
+        item.onclick = () => {
             iframe.src = app.url;
-            // Bỏ class 'hidden' để khung Fullscreen trượt ra
             fullscreenWrapper.classList.remove('hidden');
-        }
-    };
+        };
+    }
     
     listContainer.appendChild(item);
 });
