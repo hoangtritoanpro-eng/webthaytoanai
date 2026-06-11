@@ -38,7 +38,7 @@ const myApps = [
     },
     {
         name: "XƯỞNG SẢN XUẤT VIDEO",
-        url: "url: "https://xuong-video-ai-skyline-thaytoanai.streamlit.app/?embed=true",
+        url: "https://xuong-video-ai-skyline-thaytoanai.streamlit.app/?embed=true",
         icon: "fa-video" // Đổi icon thành người đeo cà vạt cho hợp với GVCN
        
     },
