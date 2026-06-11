@@ -35,7 +35,12 @@ const myApps = [
         name: "TOÁN THCS",
         url: "https://toanthcs-ten.vercel.app/",
         icon: "fa-check-double" // Đổi icon thành dấu tích chấm điểm
-    }
+    },
+    {
+        name: "XƯỞNG SẢN XUẤT VIDEO",
+        url: "https://xuong-video-ai-skyline-thaytoanai.streamlit.app/",
+        icon: "Camera" // Đổi icon thành người đeo cà vạt cho hợp với GVCN
+    },
 ];
 
 const listContainer = document.getElementById('app-list');
