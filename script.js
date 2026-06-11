@@ -82,9 +82,6 @@ myApps.forEach(app => {
     
     listContainer.appendChild(item);
 });
-    
-    listContainer.appendChild(item);
-});
 
 // Hàm để đóng Fullscreen (Nút Quay lại)
 function closeFullscreen() {
