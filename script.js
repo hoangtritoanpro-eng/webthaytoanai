@@ -38,8 +38,9 @@ const myApps = [
     },
     {
         name: "XƯỞNG SẢN XUẤT VIDEO",
-        url: "https://xuong-video-ai-skyline-thaytoanai.streamlit.app/?embed=true",
-        icon: "fa-video" // Đổi icon thành người đeo cà vạt cho hợp với GVCN
+        url: "https://xuong-video-ai-skyline-thaytoanai.streamlit.app/",
+        icon: "fa-video",
+        isExternal: true  // Thêm dòng này để đánh dấu đây là link cần mở ngoài
        
     },
 ];
@@ -57,12 +58,30 @@ myApps.forEach(app => {
     item.innerHTML = `<i class="fa-solid ${app.icon}"></i> <span>${app.name}</span>`;
     
     // Logic khi người dùng click vào thẻ ứng dụng
+ // Tự động tạo danh sách ứng dụng ở cột trái
+myApps.forEach(app => {
+    const item = document.createElement('div');
+    item.className = 'q-item';
+    
+    // Đổ dữ liệu Icon và Tên ứng dụng vào thẻ
+    item.innerHTML = `<i class="fa-solid ${app.icon}"></i> <span>${app.name}</span>`;
+    
+    // Logic khi người dùng click vào thẻ ứng dụng
     item.onclick = () => {
-        // Mở link trong iframe
-        iframe.src = app.url;
-        // Bỏ class 'hidden' để khung Fullscreen trượt ra
-        fullscreenWrapper.classList.remove('hidden');
+        // KIỂM TRA ĐIỀU KIỆN
+        if (app.isExternal) {
+            // Nếu có cờ isExternal: true -> Mở ứng dụng sang một Tab/Cửa sổ mới
+            window.open(app.url, '_blank', 'noopener,noreferrer');
+        } else {
+            // Nếu là các ứng dụng bình thường -> Mở link trong iframe
+            iframe.src = app.url;
+            // Bỏ class 'hidden' để khung Fullscreen trượt ra
+            fullscreenWrapper.classList.remove('hidden');
+        }
     };
+    
+    listContainer.appendChild(item);
+});
     
     listContainer.appendChild(item);
 });
