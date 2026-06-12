@@ -32,12 +32,12 @@ const myApps = [
     },
     {
         name: "TOÁN THCS",
-        url: "LINK_TOAN_THCS_CUA_BAN_O_DAY", 
+        url: "https://toanthcs-ten.vercel.app/", 
         icon: "fa-square-root-variable"
     },
     {
         name: "XƯỞNG SẢN XUẤT VIDEO",
-        url: "LINK_VIDEO_CUA_BAN_O_DAY", 
+        url: "https://xuong-video-ai-skyline-thaytoanai.streamlit.app/", 
         icon: "fa-video",
         openInNewTab: true // 👈 Lệnh đặc biệt: Mở sang Tab mới để tránh lỗi chặn Iframe
     },
