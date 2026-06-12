@@ -32,23 +32,22 @@ const myApps = [
     },
     {
         name: "TOÁN THCS",
-        url: "https://toanthcs-ten.vercel.app/", // Chú ý: Bạn nhớ cập nhật link thật của Toán THCS vào đây nhé!
+        url: "https://toan-thcs-link-cua-ban.vercel.app/", // Chú ý thay link này
         icon: "fa-square-root-variable"
     },
     {
         name: "XƯỞNG SẢN XUẤT VIDEO",
-        url: "https://xuong-video-ai-skyline-thaytoanai.streamlit.app/", // Đã cập nhật link thực tế
+        url: "https://xuong-video-ai-skyline-thaytoanai.streamlit.app/", 
         icon: "fa-video",
-        openInNewTab: true // Mở sang Tab mới để không bị lỗi Streamlit chặn Iframe
+        openInNewTab: true // 👈 ĐÂY CHÍNH LÀ LỆNH BẬT TAB MỚI
     },
     {
         name: "TẠO INFOGRAPHIC BÀI HỌC",
-        url: "https://taoanhinfothaytoanai.vercel.app/", // Đã cập nhật link thực tế
+        url: "https://taoanhinfothaytoanai.vercel.app/", 
         icon: "fa-palette"
     }
 ];
 
-// Trỏ tới Container dạng Lưới (Grid)
 const gridContainer = document.getElementById('app-grid');
 const fullscreenWrapper = document.getElementById('fullscreen-wrapper');
 const iframe = document.getElementById('app-frame');
@@ -58,15 +57,15 @@ myApps.forEach(app => {
     const item = document.createElement('div');
     item.className = 'q-item';
     
-    // Icon và Tên ứng dụng
     item.innerHTML = `<i class="fa-solid ${app.icon}"></i> <span>${app.name}</span>`;
     
+    // Logic xử lý khi Click
     item.onclick = () => {
-        // Kiểm tra xem ứng dụng có được yêu cầu mở trang mới không
         if (app.openInNewTab) {
-            window.open(app.url, '_blank'); // Mở sang Tab mới
+            // Nếu có lệnh openInNewTab: true -> Mở sang Tab mới
+            window.open(app.url, '_blank'); 
         } else {
-            // Nếu không, mở bình thường trong khung Fullscreen của trang web
+            // Nếu không -> Mở trong khung Fullscreen
             iframe.src = app.url;
             fullscreenWrapper.classList.remove('hidden');
         }
@@ -75,10 +74,9 @@ myApps.forEach(app => {
     gridContainer.appendChild(item);
 });
 
-// Nút Quay lại
+// Nút Quay lại cho các app mở Fullscreen
 function closeFullscreen() {
     fullscreenWrapper.classList.add('hidden');
-    // Xóa link trong iframe để dừng các video/âm thanh phát ngầm
     setTimeout(() => {
         iframe.src = "about:blank";
     }, 300);
