@@ -32,13 +32,14 @@ const myApps = [
     },
     {
         name: "TOÁN THCS",
-        url: "https://toan-thcs-link-cua-ban.vercel.app/", // Nhớ thay link thật
+        url: "LINK_TOAN_THCS_CUA_BAN_O_DAY", 
         icon: "fa-square-root-variable"
     },
     {
         name: "XƯỞNG SẢN XUẤT VIDEO",
-        url: "https://xuong-video-link-cua-ban.vercel.app/", // Nhớ thay link thật
-        icon: "fa-video"
+        url: "LINK_VIDEO_CUA_BAN_O_DAY", 
+        icon: "fa-video",
+        openInNewTab: true // 👈 Lệnh đặc biệt: Mở sang Tab mới để tránh lỗi chặn Iframe
     },
     {
         name: "TẠO INFOGRAPHIC BÀI HỌC",
@@ -61,8 +62,14 @@ myApps.forEach(app => {
     item.innerHTML = `<i class="fa-solid ${app.icon}"></i> <span>${app.name}</span>`;
     
     item.onclick = () => {
-        iframe.src = app.url;
-        fullscreenWrapper.classList.remove('hidden');
+        // Kiểm tra xem ứng dụng có yêu cầu mở Tab mới không
+        if (app.openInNewTab) {
+            window.open(app.url, '_blank'); // Mở Tab mới cực mượt
+        } else {
+            // Nếu không, mở bình thường trong khung Fullscreen
+            iframe.src = app.url;
+            fullscreenWrapper.classList.remove('hidden');
+        }
     };
     
     gridContainer.appendChild(item);
