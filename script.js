@@ -32,14 +32,14 @@ const myApps = [
     },
     {
         name: "TOÁN THCS",
-        url: "https://toan-thcs-link-cua-ban.vercel.app/", // Chú ý thay link này
+        url: "https://toanthcs-ten.vercel.app/",
         icon: "fa-square-root-variable"
     },
     {
         name: "XƯỞNG SẢN XUẤT VIDEO",
         url: "https://xuong-video-ai-skyline-thaytoanai.streamlit.app/", 
         icon: "fa-video",
-        openInNewTab: true // 👈 ĐÂY CHÍNH LÀ LỆNH BẬT TAB MỚI
+        openInNewTab: true // 👈 Đánh dấu ứng dụng này cần mở Tab mới
     },
     {
         name: "TẠO INFOGRAPHIC BÀI HỌC",
@@ -54,22 +54,25 @@ const iframe = document.getElementById('app-frame');
 
 // Tự động tạo danh sách thẻ ứng dụng
 myApps.forEach(app => {
-    const item = document.createElement('div');
+    // CẢI TIẾN LỚN: Nếu có lệnh openInNewTab, ta tạo thẻ Link (<a>). Nếu không, tạo thẻ khối (<div>)
+    const item = document.createElement(app.openInNewTab ? 'a' : 'div');
     item.className = 'q-item';
     
     item.innerHTML = `<i class="fa-solid ${app.icon}"></i> <span>${app.name}</span>`;
     
-    // Logic xử lý khi Click
-    item.onclick = () => {
-        if (app.openInNewTab) {
-            // Nếu có lệnh openInNewTab: true -> Mở sang Tab mới
-            window.open(app.url, '_blank'); 
-        } else {
-            // Nếu không -> Mở trong khung Fullscreen
+    if (app.openInNewTab) {
+        // Thiết lập chuẩn cho thẻ Link để không bao giờ bị trình duyệt chặn
+        item.href = app.url;
+        item.target = "_blank"; // Mở tab mới
+        item.style.textDecoration = "none"; // Bỏ đường gạch chân xấu xí của link
+        item.style.color = "var(--blue-700)"; // Giữ nguyên màu chữ gốc
+    } else {
+        // Đối với các app còn lại, vẫn mở trong khung phóng to
+        item.onclick = () => {
             iframe.src = app.url;
             fullscreenWrapper.classList.remove('hidden');
-        }
-    };
+        };
+    }
     
     gridContainer.appendChild(item);
 });
