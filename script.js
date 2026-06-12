@@ -40,6 +40,11 @@ const myApps = [
         url: "https://xuong-video-ai-skyline-thaytoanai.streamlit.app/",
         icon: "fa-video",
         isExternal: true  // Đánh dấu mở link ở Tab mới bằng thẻ <a>
+    },
+    {
+        name: "TẠO INFOGRAPHIC BÀI HỌC",
+        url: "https://taoanhinfothaytoanai.vercel.app/",
+        icon: "fa-photo"
     }
 ];
 
