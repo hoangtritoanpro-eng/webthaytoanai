@@ -32,23 +32,23 @@ const myApps = [
     },
     {
         name: "TOÁN THCS",
-        url: "https://toanthcs-ten.vercel.app/", 
+        url: "https://toan-thcs-link-cua-ban.vercel.app/", // Chú ý: Bạn nhớ cập nhật link thật của Toán THCS vào đây nhé!
         icon: "fa-square-root-variable"
     },
     {
         name: "XƯỞNG SẢN XUẤT VIDEO",
-        url: "https://xuong-video-ai-skyline-thaytoanai.streamlit.app/", 
+        url: "https://xuong-video-ai-skyline-thaytoanai.streamlit.app/", // Đã cập nhật link thực tế
         icon: "fa-video",
-        openInNewTab: true // 👈 Lệnh đặc biệt: Mở sang Tab mới để tránh lỗi chặn Iframe
+        openInNewTab: true // Mở sang Tab mới để không bị lỗi Streamlit chặn Iframe
     },
     {
         name: "TẠO INFOGRAPHIC BÀI HỌC",
-        url: "https://taoanhinfothaytoanai.vercel.app/",
+        url: "https://taoanhinfothaytoanai.vercel.app/", // Đã cập nhật link thực tế
         icon: "fa-palette"
     }
 ];
 
-// Trỏ tới Container dạng Lưới (Grid) mới
+// Trỏ tới Container dạng Lưới (Grid)
 const gridContainer = document.getElementById('app-grid');
 const fullscreenWrapper = document.getElementById('fullscreen-wrapper');
 const iframe = document.getElementById('app-frame');
@@ -62,11 +62,11 @@ myApps.forEach(app => {
     item.innerHTML = `<i class="fa-solid ${app.icon}"></i> <span>${app.name}</span>`;
     
     item.onclick = () => {
-        // Kiểm tra xem ứng dụng có yêu cầu mở Tab mới không
+        // Kiểm tra xem ứng dụng có được yêu cầu mở trang mới không
         if (app.openInNewTab) {
-            window.open(app.url, '_blank'); // Mở Tab mới cực mượt
+            window.open(app.url, '_blank'); // Mở sang Tab mới
         } else {
-            // Nếu không, mở bình thường trong khung Fullscreen
+            // Nếu không, mở bình thường trong khung Fullscreen của trang web
             iframe.src = app.url;
             fullscreenWrapper.classList.remove('hidden');
         }
@@ -78,6 +78,7 @@ myApps.forEach(app => {
 // Nút Quay lại
 function closeFullscreen() {
     fullscreenWrapper.classList.add('hidden');
+    // Xóa link trong iframe để dừng các video/âm thanh phát ngầm
     setTimeout(() => {
         iframe.src = "about:blank";
     }, 300);
