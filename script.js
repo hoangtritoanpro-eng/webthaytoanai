@@ -32,7 +32,7 @@ const myApps = [
     },
     {
         name: "TOÁN THCS",
-        url: "https://toan-thcs-link-cua-ban.vercel.app/", // Chú ý: Bạn nhớ cập nhật link thật của Toán THCS vào đây nhé!
+        url: "https://toanthcs-ten.vercel.app/", // Chú ý: Bạn nhớ cập nhật link thật của Toán THCS vào đây nhé!
         icon: "fa-square-root-variable"
     },
     {
