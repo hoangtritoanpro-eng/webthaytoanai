@@ -1,4 +1,4 @@
-// Danh sách các ứng dụng thực tế của bạn
+// Danh sách ĐẦY ĐỦ các ứng dụng của bạn
 const myApps = [
     {
         name: "Gemini OCR Studio",
@@ -18,75 +18,59 @@ const myApps = [
     {
         name: "TRỢ LÝ GVCN",
         url: "https://trolygvcna-i.vercel.app/",
-        icon: "fa-user-tie" 
+        icon: "fa-user-tie"
     },
     {
         name: "THƯ VIỆN SỐ SKL",
         url: "https://thuvientoanskl.vercel.app/",
-        icon: "fa-book" 
+        icon: "fa-book"
     },
     {
         name: "CHẤM ĐIỂM TỰ ĐỘNG OCR",
         url: "https://toan-skl-ocr.vercel.app/",
-        icon: "fa-check-double" 
+        icon: "fa-check-double"
     },
     {
         name: "TOÁN THCS",
-        url: "https://toanthcs-ten.vercel.app/",
-        icon: "fa-check-double" 
+        url: "https://toan-thcs-link-cua-ban.vercel.app/", // Nhớ thay link thật
+        icon: "fa-square-root-variable"
     },
     {
         name: "XƯỞNG SẢN XUẤT VIDEO",
-        url: "https://xuong-video-ai-skyline-thaytoanai.streamlit.app/",
-        icon: "fa-video",
-        isExternal: true  // Đánh dấu mở link ở Tab mới bằng thẻ <a>
+        url: "https://xuong-video-link-cua-ban.vercel.app/", // Nhớ thay link thật
+        icon: "fa-video"
     },
     {
         name: "TẠO INFOGRAPHIC BÀI HỌC",
         url: "https://taoanhinfothaytoanai.vercel.app/",
-        icon: "fa-images"
+        icon: "fa-palette"
     }
 ];
 
-const listContainer = document.getElementById('app-list');
+// Trỏ tới Container dạng Lưới (Grid) mới
+const gridContainer = document.getElementById('app-grid');
 const fullscreenWrapper = document.getElementById('fullscreen-wrapper');
 const iframe = document.getElementById('app-frame');
 
-// Tự động tạo danh sách ứng dụng ở cột trái
+// Tự động tạo danh sách thẻ ứng dụng
 myApps.forEach(app => {
-    // Nếu là link ngoài (isExternal) thì tạo thẻ <a>, ngược lại tạo thẻ <div>
-    const item = document.createElement(app.isExternal ? 'a' : 'div');
+    const item = document.createElement('div');
     item.className = 'q-item';
     
-    // Đổ dữ liệu Icon và Tên ứng dụng vào thẻ
+    // Icon và Tên ứng dụng
     item.innerHTML = `<i class="fa-solid ${app.icon}"></i> <span>${app.name}</span>`;
     
-    if (app.isExternal) {
-        // Thiết lập thuộc tính cho thẻ <a> để mở Tab mới an toàn tuyệt đối
-        item.href = app.url;
-        item.target = '_blank';
-        item.rel = 'noopener noreferrer';
-        
-        // CSS để giữ nguyên giao diện đẹp của thầy, không bị gạch chân hay đổi màu link
-        item.style.textDecoration = 'none'; 
-        item.style.color = 'inherit';       
-    } else {
-        // Logic cho các nút mở trong khung iframe trượt (các nút bình thường)
-        item.onclick = () => {
-            iframe.src = app.url;
-            fullscreenWrapper.classList.remove('hidden');
-        };
-    }
+    item.onclick = () => {
+        iframe.src = app.url;
+        fullscreenWrapper.classList.remove('hidden');
+    };
     
-    listContainer.appendChild(item);
+    gridContainer.appendChild(item);
 });
 
-// Hàm để đóng Fullscreen (Nút Quay lại)
+// Nút Quay lại
 function closeFullscreen() {
-    // Thêm class 'hidden' để ẩn khung đi
     fullscreenWrapper.classList.add('hidden');
-    
-    // Xóa link trong iframe để đảm bảo không có video/âm thanh phát ngầm
     setTimeout(() => {
         iframe.src = "about:blank";
     }, 300);
