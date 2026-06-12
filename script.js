@@ -44,7 +44,7 @@ const myApps = [
     {
         name: "TẠO INFOGRAPHIC BÀI HỌC",
         url: "https://taoanhinfothaytoanai.vercel.app/",
-        icon: "fa-photo"
+        icon: "fa-images"
     }
 ];
 
