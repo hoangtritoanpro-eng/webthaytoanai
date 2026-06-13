@@ -45,6 +45,11 @@ const myApps = [
         name: "TẠO INFOGRAPHIC BÀI HỌC",
         url: "https://taoanhinfothaytoanai.vercel.app/", 
         icon: "fa-palette"
+    },
+    {
+        name: "GEO AI",
+        url: "https://geoaitritoanai.vercel.app/", 
+        icon: "fa-shapes"
     }
 ];
 
