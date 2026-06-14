@@ -50,6 +50,11 @@ const myApps = [
         name: "GEO AI",
         url: "https://geoaitritoanai.vercel.app/", 
         icon: "fa-shapes"
+    },
+    {
+        name: "TẠO PROMT",
+        url: "https://promtthaytoanai.vercel.app/", 
+        icon: "fa-pen-nib"
     }
 ];
 
