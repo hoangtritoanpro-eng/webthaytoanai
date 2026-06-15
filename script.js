@@ -55,6 +55,11 @@ const myApps = [
         name: "TẠO PROMT",
         url: "https://promtthaytoanai.vercel.app/", 
         icon: "fa-pen-nib"
+    },
+    {
+        name: "TẠO BIỂU ĐỒ",
+        url: "https://tqh-chart.vercel.app/", 
+        icon: "fa-paintbrush"
     }
 ];
 
