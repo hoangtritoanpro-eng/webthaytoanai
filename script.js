@@ -60,6 +60,11 @@ const myApps = [
         name: "TẠO BIỂU ĐỒ",
         url: "https://tqh-chart.vercel.app/", 
         icon: "fa-paintbrush"
+    },
+    {
+        name: "GEO AI 2D",
+        url: "https://geoaithaytoanai.vercel.app/", 
+        icon: "fa-shapes"
     }
 ];
 
