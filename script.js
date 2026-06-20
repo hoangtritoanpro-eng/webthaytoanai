@@ -65,6 +65,11 @@ const myApps = [
         name: "GEO AI 2D",
         url: "https://geoaithaytoanai.vercel.app/", 
         icon: "fa-shapes"
+    },
+    {
+        name: "NHẬN XÉT HỌC SINH",
+        url: "https://nhanxethocsinhai.vercel.app/", 
+        icon: "fa-user-edit"
     }
 ];
 
