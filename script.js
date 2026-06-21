@@ -70,6 +70,11 @@ const myApps = [
         name: "NHẬN XÉT HỌC SINH",
         url: "https://nhanxethocsinhai.vercel.app/", 
         icon: "fa-user-edit"
+    },
+    {
+        name: "THÔNG BÁO SKL",
+        url: "https://thongbaoskl.vercel.app/", 
+        icon: "fa-bell"
     }
 ];
 
